@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kocama 🤭❤️‍🔥</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+}
+.hidden{display:none}
+.container{
+  padding:40px 20px;
+  max-width:900px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+h1{font-size:2.7rem}
+.heart{
+  font-size:3rem;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+  100%{transform:scale(1)}
+}
+.text-box{
+  background:rgba(255,255,255,0.15);
+  border-radius:25px;
+  padding:35px;
+  margin-top:30px;
+  backdrop-filter:blur(10px);
+  font-size:1.05rem;
+  line-height:1.8;
+}
+input,button{
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  margin-top:10px;
+  font-size:1rem;
+}
+button{
+  background:#ff4d6d;
+  color:white;
+  cursor:pointer;
+}
+.falling-heart{
+  position:fixed;
+  top:-10px;
+  font-size:20px;
+  animation:fall linear forwards;
+  z-index:1;
+  opacity:.8;
+}
+@keyframes fall{
+  to{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- GİRİŞ -->
+<div class="container" id="login">
+  <div class="heart">❤️‍🔥</div>
+  <h1>Hoş Geldin Aşkım</h1>
+  <p>Bu sayfa sadece bize özel</p>
+  <input type="password" id="password" placeholder="Şifreyi gir">
+  <br>
+  <button onclick="checkPassword()">Giriş Yap</button>
+</div>
+
+<!-- İÇERİK -->
+<div class="container hidden" id="content">
+  <div class="heart">❤️‍🔥</div>
+  <h1>1. Yılımız Kutlu Olsun</h1>
+
+  <div class="text-box">
+    ❤️00.00❤️<br><br>
+
+    Kocammmmmm ay seni yerimmmm böyle başlamak istedim kfnejdnsn seni çok seviyorum ya kurban olduğum bu gün 2. Yılımızın ilk günü ay ağlicam şimdi çok duygulandım ya o kadar mutluyum ki seninle birlikte olduğum için bana katlanabildiğin için benim her saniye yanımda olduğun için bana bir kere bile acaba dedirtmediğin için çok teşekkür ederim 🥹🩷
+    <br><br>
+
+    Dünyanın en güzel yeri neresi diye sorsalar şu an derim ki gerçekten içten ve samimi olarak kocamın kalbi diye cevap veririm çünkü çok yufka yüreklisin merhametin beni en çok etkileyen şeylerden birisiydi zaten hele o yazın kıtmir diye bi köpek vardı ya hamile adını beraber koymuştuk ona karşı olan o sevgin merhametin beni o kadar etkilemişti ki ağlamıştım bile jdjwndjs daha bir sürü böyle örnek var ama asıl sana vurulduğum savaş kalbimin olduğunu hissettirdiğin o ilk andı hani ben tokattaydım 3 4 günlüğüne eve gitmeden 1 2 gün önce saat 5e kadar yazışmıştık ya o zaman sana tam anlamıyla aşırı aşık oldum işte keşke eskisi gibi olsa işimiz olmasa uykumuz gelmese sabaha kadar konuşsak ama ben böyle de çok mutluyum 🥹❤️
+    <br><br>
+
+    Nice yıllarımıza kurban olduğum bir sonraki yıl dönümümüzde evli oluruz inşallah seni çok seviyorum hep benimle kal bitanem muahh🥹🩷
+  </div>
+</div>
+
+<script>
+const correctPassword = "kocamm";
+
+function checkPassword(){
+  const input = document.getElementById("password").value;
+  if(input === correctPassword){
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("content").classList.remove("hidden");
+    startHeartRain();
+  }else{
+    alert("Yanlış şifre aşkım 😌");
+  }
+}
+
+function startHeartRain(){
+  setInterval(()=>{
+    const heart = document.createElement("div");
+    heart.className = "falling-heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+  },220);
+}
+</script>
+
+</body>
+</html>
